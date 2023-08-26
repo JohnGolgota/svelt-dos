@@ -1,6 +1,17 @@
 <script>
-  import logo from './assets/svelte.png'
-  import Counter from './lib/Counter.svelte'
+  import logo from "./assets/svelte.png";
+  import Counter from "./lib/Counter.svelte";
+  const options = {
+    method: "GET",
+    headers: {
+      Authorization2: import.meta.env.VITE_AUTHORIZATION2,
+    },
+  };
+
+  fetch("http://honoredfrankmanagement.johngolgota.repl.co/", options)
+    .then((response) => response.json())
+    .then((response) => console.log(response))
+    .catch((err) => console.error(err));
 </script>
 
 <main>
@@ -22,8 +33,8 @@
 
 <style>
   :root {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 
   main {
